@@ -1,0 +1,49 @@
+.container {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container-quiz {
+    height: 500px;
+    display: flex;
+}
+
+.container-nav {
+    display: flex;
+    flex-direction: column;
+    background-color: #465b99;
+}
+
+.navbar {
+    background-color: #465b99;
+}
+
+.container-questions {
+    height: 500px;
+    width: 800px;
+    background-color: #ffffff;
+}
+
+.question {
+    text-align: center;
+    padding: 50px;
+}
+
+div > .answer {
+    text-align: start;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.alphabet-answer {
+    height: 40px;
+    width: 40px;
+    background-color: #8f8e8e;
+    display: inline-block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
