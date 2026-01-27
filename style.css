@@ -1,3 +1,7 @@
+body {
+    --bs-body-bg: rgb(248, 248, 248);
+}
+
 .container {
     min-height: 100vh;
     display: flex;
@@ -5,12 +9,16 @@
     align-items: center;
 }
 
-.container-quiz {
+.quiz-container {
+    display: flex;
+}
+
+.nav-container-outer {
     height: 500px;
     display: flex;
 }
 
-.container-nav {
+.nav-container-inner {
     display: flex;
     flex-direction: column;
     background-color: #465b99;
@@ -23,7 +31,8 @@
 .container-questions {
     height: 500px;
     width: 800px;
-    background-color: #ffffff;
+    --bs-border-color: white;
+    background-color: white;
 }
 
 .question {
@@ -46,4 +55,56 @@ div > .answer {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.d-none {
+    display: none;
+}
+
+.welcome-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 70%;
+    text-align: center;
+}
+
+.start-btn-cont {
+    height: 30%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+
+.start-btn-cont > button {
+    margin: 20px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    height: 40px;
+    width: 150px;
+    background-color: #ff811f;
+    color: white;
+}
+
+.question-page {
+    height: 100%;
+}
+
+.next-btn-cont {
+    position: absolute;
+    top: 80%;
+}
+
+.nav-arrow-container {
+    margin-top: 40px;
+}
+
+.nav-arrow-container > button {
+    border-radius: 100%;
+    background-color: #b5c0e2;
+    height: 30px;
+    width: 30px;
+    border: 0;
+    color: #465b99;
 }

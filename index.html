@@ -8,70 +8,75 @@
         <script src="script.js"></script>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link
-            href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
-            rel="stylesheet"
-        />
+        <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet" />
         <!--Bootstrap-->
-        <link
-            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
-            rel="stylesheet"
-            integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
-            crossorigin="anonymous"
-        />
-        <script
-            src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
-            crossorigin="anonymous"
-        ></script>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous" />
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
     </head>
     <body>
         <div class="container">
-            <div class="container-quiz">
-                <div class="container-nav rounded-start p-3">
-                    <img src="assets/icons/logo.png" alt="" />
-                    <nav class="navbar navbar-expand-lg">
-                        <div class="container-fluid">
-                            <div class="collapse navbar-collapse" id="navbarNav">
-                                <ul class="navbar-nav d-flex flex-column">
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="#">Html</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="#">CSS</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="#">JS</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="#">Java</a>
-                                    </li>
-                                </ul>
+            <div>
+                <div class="quiz-container">
+                    <div class="nav-container-outer">
+                        <div class="nav-container-inner rounded-start p-3">
+                            <img src="assets/icons/logo.png" alt="" />
+                            <nav class="navbar navbar-expand-lg">
+                                <div class="container-fluid">
+                                    <div class="collapse navbar-collapse" id="navbarNav">
+                                        <ul class="navbar-nav d-flex flex-column">
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="#">Html</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="#">CSS</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="#">JS</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="#">Java</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </nav>
+                        </div>
+                    </div>
+                    <div class="border rounded-end container-questions p-3">
+                        <div class="h-100" id="welcome-page">
+                            <div class="welcome-text">
+                                <h1>
+                                    Welcome to<br />
+                                    The Awesome HTML Quiz
+                                </h1>
+                                <span>Ready fot the Challenge</span>
+                            </div>
+                            <div class="start-btn-cont"><button onclick="startQuiz()">START NOW&emsp;></button></div>
+                        </div>
+                        <div id="question-page" class="d-none question-page">
+                            <h2 id="question" class="question">Question</h2>
+                            <div class="d-grid gap-2">
+                                <button id="answer-1" class="btn answer" type="button" onclick="answer('answer-1')">
+                                    <div class="alphabet-answer">A</div>
+                                    <div id="input-1">answer 1</div>
+                                </button>
+                                <button id="answer-2" class="btn answer" type="button" onclick="answer('answer-2')">
+                                    <div class="alphabet-answer">B</div>
+                                    <div id="input-2">Answer 2</div>
+                                </button>
+                                <button id="answer-3" class="btn answer" type="button" onclick="answer('answer-3')">
+                                    <div class="alphabet-answer">C</div>
+                                    <div id="input-3">Answer 3</div>
+                                </button>
+                                <button id="answer-4" class="btn answer" type="button" onclick="answer('answer-4')">
+                                    <div class="alphabet-answer">D</div>
+                                    <div id="input-4">Answer 4</div>
+                                </button>
                             </div>
                         </div>
-                    </nav>
+                    </div>
                 </div>
-            </div>
-            <div class="border rounded-end container-questions p-3">
-                <h2 class="question">Wer hat HTML erfunden ?</h2>
-                <div class="d-grid gap-2">
-                    <button class="btn answer" type="button">
-                        <div class="alphabet-answer"><div>A</div></div>
-                        Robie Williams
-                    </button>
-                    <button class="btn answer" type="button">
-                        <div class="alphabet-answer"><div>B</div></div>
-                        Lady Gaga
-                    </button>
-                    <button class="btn answer" type="button">
-                        <div class="alphabet-answer"><div>C</div></div>
-                        Tim Berners - Lee
-                    </button>
-                    <button class="btn answer" type="button">
-                        <div class="alphabet-answer"><div>D</div></div>
-                        Justin Bieber
-                    </button>
-                </div>
+                <div id="nav-arrow-container" class="d-flex justify-content-around nav-arrow-container d-none"><button id="arrow-back-button" onclick="nextQuestion(false)" disabled><</button><button id="arrow-next-button" onclick="nextQuestion(true)" disabled>></button></div>
             </div>
         </div>
     </body>
