@@ -27,12 +27,13 @@ let questions = [
 
 let currentSection = 0;
 let currentQuestion = 0;
-let rightAnswers = 0;
+let answerAmount = 4;
+let answers = [];
 
 function startQuiz() {
     document.getElementById("welcome-page").classList.add("d-none");
     document.getElementById("question-page").classList.remove("d-none");
-    document.getElementById("nav-arrow-container").classList.remove("d-none");
+    document.getElementById("nav-arrow-container").classList.remove("v-hidden");
     question();
 }
 
@@ -44,32 +45,68 @@ function question() {
     document.getElementById("input-4").innerText = questions[currentSection][currentQuestion][4];
 }
 
-function answer(answerId) {
-    const answerRef = document.getElementById(answerId);
-    const rightAnswer = questions[currentSection][currentQuestion][5];
-    if (answerId.slice(-1) == rightAnswer) {
-        answerRef.classList.add("bg-success");
-    } else {
-        answerRef.classList.add("bg-danger");
+//wenn start dann gesperrt und wenn ende dann wieder entsperrt
+function chooseSection(sectionId) {
+    currentSection = sectionId.slice(-1) - 1;
+    for (let element of document.getElementById("sections").children) {
+        element.classList.remove("btn-nav-active");
     }
-    enableDisableButtons(true);
+    document.getElementById(sectionId).classList.add("btn-nav-active");
 }
 
-function enableDisableButtons(enableDisable) {
-    const arrowBackButtonRef = document.getElementById("arrow-back-button");
-    const arrowNextButtonRef = document.getElementById("arrow-next-button");
-
-    if (enableDisable) {
-        if (currentQuestion != 0) {
-            arrowBackButtonRef.disabled = false;
-        }
-        if (currentQuestion + 1 < questions[currentSection].length) {
-            arrowNextButtonRef.disabled = false;
-        }
+function answer(answerId) {
+    let rightAnswer = questions[currentSection][currentQuestion][5];
+    const answerRef = document.getElementById(answerId);
+    if (answerId.slice(-1) == rightAnswer) {
+        answerRef.classList.add("bg-success");
+        answers.push([answerId, true]);
     } else {
-        arrowBackButtonRef.disabled = true;
-        arrowNextButtonRef.disabled = true;
+        answerRef.classList.add("bg-danger");
+        answers.push([answerId, false]);
     }
+    enableNextButton();
+    disableAnswers();
+}
+
+function enableAnswers() {
+    for (let index = 1; index < 5; index++) {
+        document.getElementById(`answer-${index}`).disabled = false;
+    }
+}
+
+function disableAnswers() {
+    for (let index = 1; index < 5; index++) {
+        document.getElementById(`answer-${index}`).disabled = true;
+    }
+}
+
+function enableNextButton() {
+    const arrowNextButtonRef = document.getElementById("arrow-next-button");
+    if (currentQuestion + 1 < questions[currentSection].length) {
+        arrowNextButtonRef.disabled = false;
+    }
+}
+
+function updateBackButton() {
+    disableBackButton();
+    enableBackButton();
+}
+
+function enableBackButton() {
+    const arrowBackButtonRef = document.getElementById("arrow-back-button");
+    if (currentQuestion != 0) {
+        arrowBackButtonRef.disabled = false;
+    }
+}
+
+function disableNextButton() {
+    const arrowNextButtonRef = document.getElementById("arrow-next-button");
+    arrowNextButtonRef.disabled = true;
+}
+
+function disableBackButton() {
+    const arrowBackButtonRef = document.getElementById("arrow-back-button");
+    arrowBackButtonRef.disabled = true;
 }
 
 function resetAnswer() {
@@ -80,13 +117,30 @@ function resetAnswer() {
     }
 }
 
-function nextQuestion(backOrNext) {
-    if (backOrNext) {
+function nextQuestion(next) {
+    if (next) {
         currentQuestion++;
     } else {
         currentQuestion--;
     }
     question();
-    enableDisableButtons(false);
+    disableNextButton();
+    updateBackButton();
+    enableAnswers();
     resetAnswer();
+    showPastAnswer();
+}
+
+function showPastAnswer() {
+    if (answers[currentQuestion]) {
+        const answerId = document.getElementById(answers[currentQuestion][0]);
+        const answerRight = answers[currentQuestion][1];
+        if (answerRight) {
+            answerId.classList.add("bg-success");
+        } else {
+            answerId.classList.add("bg-danger");
+        }
+        enableNextButton();
+        disableAnswers();
+    }
 }

@@ -23,20 +23,12 @@
                             <nav class="navbar navbar-expand-lg">
                                 <div class="container-fluid">
                                     <div class="collapse navbar-collapse" id="navbarNav">
-                                        <ul class="navbar-nav d-flex flex-column">
-                                            <li class="nav-item">
-                                                <a class="nav-link" href="#">Html</a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a class="nav-link" href="#">CSS</a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a class="nav-link" href="#">JS</a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a class="nav-link" href="#">Java</a>
-                                            </li>
-                                        </ul>
+                                        <div id="sections" class="d-flex flex-column">
+                                            <button id="section-1" onclick="chooseSection('section-1')" class="btn-nav btn-nav-active">Html</button>
+                                            <button id="section-2" onclick="chooseSection('section-2')" class="btn-nav">CSS</button>
+                                            <button id="section-3" onclick="chooseSection('section-3')" class="btn-nav">JS</button>
+                                            <button id="section-4" onclick="chooseSection('section-4')" class="btn-nav">Java</button>
+                                        </div>
                                     </div>
                                 </div>
                             </nav>
@@ -76,7 +68,7 @@
                         </div>
                     </div>
                 </div>
-                <div id="nav-arrow-container" class="d-flex justify-content-around nav-arrow-container d-none"><button id="arrow-back-button" onclick="nextQuestion(false)" disabled><</button><button id="arrow-next-button" onclick="nextQuestion(true)" disabled>></button></div>
+                <div id="nav-arrow-container" class="d-flex justify-content-around nav-arrow-container v-hidden"><button id="arrow-back-button" onclick="nextQuestion(false)" disabled><</button><button id="arrow-next-button" onclick="nextQuestion(true)" disabled>></button></div>
             </div>
         </div>
     </body>

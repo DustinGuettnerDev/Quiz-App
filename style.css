@@ -37,7 +37,10 @@ body {
 
 .question {
     text-align: center;
-    padding: 50px;
+    line-height: 1.2em;
+    height: calc(1.2em * 2);
+    margin-top: 30px;
+    margin-bottom: 40px;
 }
 
 div > .answer {
@@ -45,6 +48,11 @@ div > .answer {
     display: flex;
     align-items: center;
     gap: 10px;
+    border: 0;
+}
+
+div > .answer:disabled {
+    opacity: 1;
 }
 
 .alphabet-answer {
@@ -59,6 +67,10 @@ div > .answer {
 
 .d-none {
     display: none;
+}
+
+.v-hidden {
+    visibility: hidden;
 }
 
 .welcome-text {
@@ -107,4 +119,13 @@ div > .answer {
     width: 30px;
     border: 0;
     color: #465b99;
+}
+
+.btn-nav {
+    background-color: #465b99;
+    border: 0;
+}
+
+.btn-nav-active {
+    transform: scale(1.1);
 }
