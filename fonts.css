@@ -1,0 +1,60 @@
+.pt-sans-regular {
+    font-family: "PT Sans", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.pt-sans-bold {
+    font-family: "PT Sans", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+}
+
+.rubik-regular {
+    font-family: "Rubik", sans-serif !important;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.rubik-medium {
+    font-family: "Rubik", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+}
+
+.rubik-bold {
+    font-family: "Rubik", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
+}
+
+.ft-white {
+    color: white;
+}
+
+.ft-lightgrey {
+    color: rgb(179, 176, 176);
+}
+
+.ft-black {
+    color: black;
+}
+
+.ft-gold {
+    color: #d09821;
+}
+
+.ft-20px {
+    font-size: 20px !important;
+}
+
+.ft-24px {
+    font-size: 24px;
+}
+
+.ft-32px {
+    font-size: 32px;
+}

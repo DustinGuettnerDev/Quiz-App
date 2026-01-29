@@ -27,7 +27,6 @@ let questions = [
 
 let currentSection = 0;
 let currentQuestion = 0;
-let answerAmount = 4;
 let answers = [];
 
 function startQuiz() {
@@ -35,17 +34,19 @@ function startQuiz() {
     document.getElementById("question-page").classList.remove("d-none");
     document.getElementById("nav-arrow-container").classList.remove("v-hidden");
     question();
+    disableNav();
 }
 
 function question() {
-    document.getElementById("question").innerText = questions[currentSection][currentQuestion][0];
-    document.getElementById("input-1").innerText = questions[currentSection][currentQuestion][1];
-    document.getElementById("input-2").innerText = questions[currentSection][currentQuestion][2];
-    document.getElementById("input-3").innerText = questions[currentSection][currentQuestion][3];
-    document.getElementById("input-4").innerText = questions[currentSection][currentQuestion][4];
+    if (currentQuestion < questions[currentSection].length) {
+        document.getElementById("question").innerText = questions[currentSection][currentQuestion][0];
+        document.getElementById("input-1").innerText = questions[currentSection][currentQuestion][1];
+        document.getElementById("input-2").innerText = questions[currentSection][currentQuestion][2];
+        document.getElementById("input-3").innerText = questions[currentSection][currentQuestion][3];
+        document.getElementById("input-4").innerText = questions[currentSection][currentQuestion][4];
+    }
 }
 
-//wenn start dann gesperrt und wenn ende dann wieder entsperrt
 function chooseSection(sectionId) {
     currentSection = sectionId.slice(-1) - 1;
     for (let element of document.getElementById("sections").children) {
@@ -82,7 +83,7 @@ function disableAnswers() {
 
 function enableNextButton() {
     const arrowNextButtonRef = document.getElementById("arrow-next-button");
-    if (currentQuestion + 1 < questions[currentSection].length) {
+    if (currentQuestion < questions[currentSection].length) {
         arrowNextButtonRef.disabled = false;
     }
 }
@@ -123,6 +124,7 @@ function nextQuestion(next) {
     } else {
         currentQuestion--;
     }
+    endscreenTotalScore();
     question();
     disableNextButton();
     updateBackButton();
@@ -142,5 +144,49 @@ function showPastAnswer() {
         }
         enableNextButton();
         disableAnswers();
+    }
+}
+
+function endscreenTotalScore() {
+    if (currentQuestion >= questions[currentSection].length) {
+        document.getElementById("question-page").classList.add("d-none");
+        document.getElementById("endscreen-total-score").classList.remove("d-none");
+        showTotalScore();
+    } else {
+        document.getElementById("question-page").classList.remove("d-none");
+        document.getElementById("endscreen-total-score").classList.add("d-none");
+    }
+}
+
+function replay() {
+    document.getElementById("welcome-page").classList.remove("d-none");
+    document.getElementById("question-page").classList.add("d-none");
+    document.getElementById("endscreen-total-score").classList.add("d-none");
+    answers = [];
+    currentQuestion = 0;
+    enableNav();
+}
+
+function showTotalScore() {
+    let answer;
+    let totalAnswersRight = 0;
+    for (arrays of answers) {
+        answer = arrays[1];
+        if (answer == true) {
+            totalAnswersRight++;
+        }
+    }
+
+    document.getElementById("total-score-number").innerText = `${totalAnswersRight}/${questions[currentSection].length}`;
+}
+
+function disableNav() {
+    for (element of document.getElementById("sections").children) {
+        element.disabled = true;
+    }
+}
+function enableNav() {
+    for (element of document.getElementById("sections").children) {
+        element.disabled = false;
     }
 }
