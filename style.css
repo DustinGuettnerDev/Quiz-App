@@ -2,7 +2,7 @@ body {
     --bs-body-bg: rgb(248, 248, 248);
 }
 
-.container {
+.general-container {
     min-height: 100vh;
     display: flex;
     justify-content: center;
@@ -20,7 +20,7 @@ body {
     background-color: #465b99;
 }
 
-.navbar {
+.navbar-sections {
     background-color: #465b99;
 }
 
@@ -46,12 +46,13 @@ div > .answer {
     gap: 20px;
 }
 
-div > .answer:disabled {
-    opacity: 1;
-}
-
 div > .answer:hover {
     border: 1px solid black;
+}
+
+div > .answer:disabled {
+    border-color: transparent;
+    opacity: 1;
 }
 
 .alphabet-answer {
@@ -124,6 +125,7 @@ div > .answer:hover {
     width: 100%;
     border: transparent;
     color: rgba(255, 255, 255, 0.6) !important;
+    margin-bottom: 20px;
 }
 
 .btn-nav-active {
