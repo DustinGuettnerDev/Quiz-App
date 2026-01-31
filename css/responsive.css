@@ -14,9 +14,8 @@
         font-size: 28px;
     }
     /*bisschen dünner*/
-    .navbar-container {
-    }
-    .nav-img {
+    .navbar-sections {
+        width: 140px;
     }
 }
 
@@ -44,5 +43,24 @@
     }
     .btn-nav {
         margin-bottom: 0;
+    }
+    .endscreen-img {
+        width: 100px;
+        height: 100px;
+    }
+}
+@media (max-width: 640px) {
+    .navbar-container {
+        width: 300px;
+    }
+    .navbar-sections {
+        padding: 0;
+    }
+    .nav-img {
+        width: 80px;
+        height: 80px;
+    }
+    .container-questions {
+        width: 300px;
     }
 }
